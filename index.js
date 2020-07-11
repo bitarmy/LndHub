@@ -44,6 +44,10 @@ app.use('/static', express.static('static'));
 app.use(require('./controllers/api'));
 app.use(require('./controllers/website'));
 
+import Subscriber from './class/Subscriber.js';
+
+var subscriber = new Subscriber(require ('./lightning'));
+
 let server = app.listen(process.env.PORT || 3000, function() {
   logger.log('BOOTING UP', 'Listening on port ' + (process.env.PORT || 3000));
 });
